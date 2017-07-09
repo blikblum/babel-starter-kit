@@ -17,6 +17,8 @@ const pkg = require('../package.json');
 
 let promise = Promise.resolve();
 
+let dependencies = Object.assign({}, pkg.dependencies || {}, pkg.peerDependencies || {})
+
 // Clean up the output directory
 promise = promise.then(() => del(['dist/*']));
 
@@ -24,7 +26,7 @@ promise = promise.then(() => del(['dist/*']));
 ['es', 'umd'].forEach((format) => {
   promise = promise.then(() => rollup.rollup({
     entry: 'src/index.js',
-    //external: Object.keys(pkg.dependencies || {}),
+    external: Object.keys(dependencies),
     plugins: [babel(Object.assign(pkg.babel, {
       babelrc: false,
       exclude: 'node_modules/**',
