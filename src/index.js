@@ -1,5 +1,5 @@
 /**
- * Babel Starter Kit (https://www.kriasoft.com/babel-starter-kit)
+ * Babel Starter Kit (https://github.com/blikblum/babel-starter-kit)
  *
  * Copyright © 2015-2016 Kriasoft, LLC. All rights reserved.
  *
@@ -7,4 +7,4 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-export {default as Greeting} from './Greeting.js';
+export {default as Greeting} from './Greeting.js'
