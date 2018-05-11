@@ -14,39 +14,48 @@
   "module": "index.esm.js",
   "babel": {
     "presets": [
-      ["env", {
-        "targets": {
-          "browsers": [
-            "ie 11",
-            "last 2 versions",
-            "Firefox ESR"
-          ]
-        },
-        "modules": false
-      }]
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": [
+              "ie 11",
+              "last 2 versions",
+              "Firefox ESR"
+            ]
+          },
+          "modules": false
+        }
+      ]
     ],
     "env": {
       "test": {
         "presets": [
-          ["env", {
-            "targets": {
-              "node": "current"
+          [
+            "env",
+            {
+              "targets": {
+                "node": "current"
+              }
             }
-          }]
+          ]
         ]
       }
     }
   },
+  "jest": {
+    "modulePathIgnorePatterns": ["<rootDir>/dist/"]
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-jest": "^22.0.6",
-    "babel-preset-env": "^1.6.1",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^22.4.3",
+    "babel-preset-env": "^1.7.0",
     "del": "^3.0.0",
-    "jest": "^22.0.6",
-    "rollup": "^0.54.0",
-    "rollup-plugin-babel": "^3.0.3",
-    "standard": "^10.0.3"
+    "jest": "^22.4.3",
+    "rollup": "^0.58.2",
+    "rollup-plugin-babel": "^3.0.4",
+    "standard": "^11.0.1"
   },
   "scripts": {
     "lint": "standard src test tools",
