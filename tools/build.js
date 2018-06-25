@@ -11,10 +11,16 @@ let promise = Promise.resolve()
 let dependencies = Object.assign({}, pkg.dependencies || {}, pkg.peerDependencies || {})
 
 // Clean up the output directory
-promise = promise.then(() => del(['dist/*']));
+promise = promise.then(() => del(['dist/*']))
+
+const outputName = pkg.name
+
+const exportName = pkg.name
+
+const formats = ['es', 'umd']
 
 // Compile source code into a distributable format with Babel
-['es', 'umd'].forEach((format) => {
+formats.forEach((format) => {
   promise = promise.then(() => rollup.rollup({
     input: 'src/index.js',
     external: Object.keys(dependencies),
@@ -22,10 +28,10 @@ promise = promise.then(() => del(['dist/*']));
       exclude: 'node_modules/**'
     })]
   }).then(bundle => bundle.write({
-    file: `dist/${format === 'umd' ? 'index' : 'index.esm'}.js`,
+    file: `dist/${format === 'umd' ? outputName : outputName + '.esm'}.js`,
     format,
     sourcemap: true,
-    name: format === 'umd' ? pkg.name : undefined
+    name: format === 'umd' ? exportName : undefined
   })))
 })
 
