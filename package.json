@@ -33,6 +33,6 @@
     "test:watch": "jest --watch",
     "test:cover": "jest --coverage",
     "build": "node tools/build",
-    "prepublish": "npm run build"
+    "prepublishOnly": "node tools/checkcwd dist && npm run build"
   }
 }
