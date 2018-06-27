@@ -10,8 +10,8 @@
   ],
   "license": "MIT",
   "keywords": [],
-  "main": "index.js",
-  "module": "index.esm.js",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "jest": {
     "modulePathIgnorePatterns": [
       "<rootDir>/dist/"
@@ -33,6 +33,6 @@
     "test:watch": "jest --watch",
     "test:cover": "jest --coverage",
     "build": "node tools/build",
-    "prepublishOnly": "node tools/checkcwd dist && npm run build"
+    "prepublishOnly": "npm run build"
   }
 }
