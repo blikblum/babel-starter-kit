@@ -27,7 +27,7 @@ formats.forEach((format) => {
       exclude: 'node_modules/**'
     })]
   }).then(bundle => bundle.write({
-    file: `dist/${format === 'umd' ? outputName : outputName + '.esm'}.js`,
+    file: `dist/${format === 'es' ? outputName : outputName + '.umd'}.js`,
     format,
     sourcemap: true,
     name: format === 'umd' ? exportName : undefined
